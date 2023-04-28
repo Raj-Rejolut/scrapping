@@ -1,0 +1,11 @@
+{
+    "baseCurrency": "AED",
+        "rates": [
+            {
+                "currency_code": "INR",
+                "currency": "INDIAN RUPEE",
+                "buy": "0.047769",
+                "sell": "0.047769"
+            }
+        ]
+}

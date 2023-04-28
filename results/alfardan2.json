@@ -1,0 +1,199 @@
+{
+    "Fri Mar 31 2023": {
+        "baseCurrency": "QAR",
+        "rates": [
+            {
+                "currency_code": "PHP",
+                "buy": "0.060606",
+                "sell": "0.071426",
+                "transfer": "0.068027"
+            },
+            {
+                "currency_code": "USD",
+                "buy": "3.640000",
+                "sell": "3.6500",
+                "transfer": "3.65"
+            },
+            {
+                "currency_code": "AUD",
+                "buy": "2.3200032.330001",
+                "sell": "2.580001",
+                "transfer": "2.550001"
+            },
+            {
+                "currency_code": "CAD",
+                "buy": "2.570000",
+                "sell": "2.830000",
+                "transfer": "2.800000"
+            },
+            {
+                "currency_code": "SGD",
+                "buy": "2.600000",
+                "sell": "2.850000",
+                "transfer": "2.890002"
+            },
+            {
+                "currency_code": "EUR",
+                "buy": "3.810001",
+                "sell": "4.150001",
+                "transfer": "4.130001"
+            },
+            {
+                "currency_code": "KWD",
+                "buy": "11.750000",
+                "sell": "12.080028",
+                "transfer": "12.090000"
+            },
+            {
+                "currency_code": "OMR",
+                "buy": "9.400005",
+                "sell": "9.600005",
+                "transfer": "9.630000"
+            },
+            {
+                "currency_code": "JOD",
+                "buy": "5.110000",
+                "sell": "5.25",
+                "transfer": "5.175000"
+            },
+            {
+                "currency_code": "EGP",
+                "buy": "0.100000",
+                "sell": "0.156248",
+                "transfer": "0.119047"
+            },
+            {
+                "currency_code": "INR",
+                "buy": "0.040816",
+                "sell": "0.048780",
+                "transfer": "0.044843"
+            },
+            {
+                "currency_code": "BDT",
+                "buy": "0.031250",
+                "sell": "0.040000",
+                "transfer": "0.034129"
+            },
+            {
+                "currency_code": "PKR",
+                "buy": "0.012500",
+                "sell": "0.015381",
+                "transfer": "0.012944"
+            },
+            {
+                "currency_code": "LKR",
+                "buy": "0.003169",
+                "sell": "0.012500",
+                "transfer": "0.011185"
+            },
+            {
+                "currency_code": "NPR",
+                "buy": "0.025000",
+                "sell": "0.032258",
+                "transfer": "0.027932"
+            },
+            {
+                "currency_code": "MYR",
+                "buy": "0.800000",
+                "sell": "0.925925",
+                "transfer": "0.892857"
+            },
+            {
+                "currency_code": "GBP",
+                "buy": "4.350000",
+                "sell": "4.690000",
+                "transfer": "4.640000"
+            },
+            {
+                "currency_code": "CHF",
+                "buy": "3.810004",
+                "sell": "4.170004",
+                "transfer": "4.080004"
+            },
+            {
+                "currency_code": "MOD",
+                "buy": "0.350877",
+                "sell": "0.429184",
+                "transfer": "0.363636"
+            },
+            {
+                "currency_code": "TUD",
+                "buy": "0.850000",
+                "sell": "1.320000",
+                "transfer": "-"
+            },
+            {
+                "currency_code": "Lira",
+                "buy": "0.000000",
+                "sell": "0.002505",
+                "transfer": "-"
+            },
+            {
+                "currency_code": "CNY",
+                "buy": "0.454545",
+                "sell": "0.555555",
+                "transfer": "-"
+            },
+            {
+                "currency_code": "IDR",
+                "buy": "0.000200",
+                "sell": "0.000267",
+                "transfer": "0.000250"
+            },
+            {
+                "currency_code": "JPY",
+                "buy": "0.022222",
+                "sell": "0.033333",
+                "transfer": "-"
+            },
+            {
+                "currency_code": "THB",
+                "buy": "0.102564",
+                "sell": "0.113636",
+                "transfer": "-"
+            },
+            {
+                "currency_code": "BHD",
+                "buy": "9.557700",
+                "sell": "9.757700",
+                "transfer": "9.73"
+            },
+            {
+                "currency_code": "SAR",
+                "buy": "0.967000",
+                "sell": "0.995000",
+                "transfer": "0.990"
+            },
+            {
+                "currency_code": "AED",
+                "buy": "0.980000",
+                "sell": "0.999800",
+                "transfer": "0.999"
+            },
+            {
+                "currency_code": "YER",
+                "buy": "0.000714",
+                "sell": "0.000740",
+                "transfer": "0.006896"
+            },
+            {
+                "currency_code": "TRL",
+                "buy": "0.188679",
+                "sell": "0.227273",
+                "transfer": "0.208333"
+            },
+            {
+                "currency_code": "SYP",
+                "buy": "-",
+                "sell": "-",
+                "transfer": "0.000516"
+            },
+            {
+                "currency_code": "QAR",
+                "buy": "",
+                "sell": "75.000000",
+                "transfer": ""
+            }
+        ]
+    }
+}

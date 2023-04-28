@@ -1,0 +1,82 @@
+{
+    "Thu Mar 30 2023": {
+        "baseCurrency": "BHR",
+        "rates": [
+            {
+                "currency_code": "INR",
+                "credit_to_amount": "215.5637",
+                "cash_pick_up": "214.5815"
+            },
+            {
+                "currency_code": "PKR",
+                "credit_to_amount": "741.2789",
+                "cash_pick_up": "741.2800"
+            },
+            {
+                "currency_code": "PHP",
+                "credit_to_amount": "144.0922",
+                "cash_pick_up": "143.9671"
+            },
+            {
+                "currency_code": "BDT",
+                "credit_to_amount": "282.8054",
+                "cash_pick_up": "283.4292"
+            },
+            {
+                "currency_code": "LKR",
+                "credit_to_amount": "862.0169",
+                "cash_pick_up": "863.4280"
+            },
+            {
+                "currency_code": "IDR",
+                "credit_to_amount": "39619.6523",
+                "cash_pick_up": "39358.2031"
+            },
+            {
+                "currency_code": "NPR",
+                "credit_to_amount": "348.2185",
+                "cash_pick_up": "348.2582"
+            },
+            {
+                "currency_code": "AED",
+                "credit_to_amount": "9.7267",
+                "cash_pick_up": "9.7144"
+            },
+            {
+                "currency_code": "NGN",
+                "credit_to_amount": "889.9568",
+                "cash_pick_up": "0.0000"
+            },
+            {
+                "currency_code": "EUR",
+                "credit_to_amount": "2.3992",
+                "cash_pick_up": "0.0000"
+            },
+            {
+                "currency_code": "USD",
+                "credit_to_amount": "2.6455",
+                "cash_pick_up": "2.6512"
+            },
+            {
+                "currency_code": "THB",
+                "credit_to_amount": "88.6525",
+                "cash_pick_up": "0.0000"
+            },
+            {
+                "currency_code": "CAD",
+                "credit_to_amount": "3.4626",
+                "cash_pick_up": "0.0000"
+            },
+            {
+                "currency_code": "AUD",
+                "credit_to_amount": "3.8008",
+                "cash_pick_up": "0.0000"
+            },
+            {
+                "currency_code": "MYR",
+                "credit_to_amount": "11.3494",
+                "cash_pick_up": "0.0000"
+            }
+        ]
+    }
+}

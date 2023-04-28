@@ -1,0 +1,26 @@
+{
+    "Fri Mar 31 2023": {
+        "baseCurrency": "AED",
+        "rates": [
+            { "currency_code": "USD", "buy": "0.7088", "sell": "0.7098" },
+            { "currency_code": "EGP", "buy": "0.0220", "sell": "0.0270" },
+            { "currency_code": "EUR", "buy": "0.7675", "sell": "0.7760" },
+            { "currency_code": "SAR", "buy": "0.18855", "sell": "0.1891" },
+            { "currency_code": "AED", "buy": "0.19295", "sell": "0.19345" },
+            { "currency_code": "OMR", "buy": "1.8370", "sell": "1.8440" },
+            { "currency_code": "GBP", "buy": "0.86950", "sell": "0.88450" },
+            { "currency_code": "QAR", "buy": "0.1915", "sell": "0.1940" },
+            { "currency_code": "KWD", "buy": "2.3050", "sell": "2.3250" },
+            { "currency_code": "BHD", "buy": "1.8720", "sell": "1.8850" },
+            { "currency_code": "AUD", "buy": "0.4660", "sell": "0.4790" },
+            { "currency_code": "CAD", "buy": "0.5190", "sell": "0.5275" },
+            { "currency_code": "SEK", "buy": "0.067550", "sell": "0.0690" },
+            { "currency_code": "JPY", "buy": "0.0052150", "sell": "0.005460" },
+            { "currency_code": "CHF", "buy": "0.7665", "sell": "0.7820" },
+            { "currency_code": "TRY", "buy": "0.03645", "sell": "0.0375" },
+            { "currency_code": "SYP", "buy": "10500", "sell": "9400" },
+            { "currency_code": "ILS", "buy": "0.1920", "sell": "0.1985" },
+            { "currency_code": "INR", "buy": "22.35", "sell": "22.35" }
+        ]
+    }
+}

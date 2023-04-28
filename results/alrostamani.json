@@ -1,0 +1,147 @@
+{
+    "Fri Mar 31 2023": {
+        "baseCurrency": "AED",
+        "rates": [
+            {
+                "currency_code": "INR",
+                "currency": "INDIAN RUPEE",
+                "transfer": "0.047769"
+            },
+            {
+                "currency_code": "EUR",
+                "currency": "EURO",
+                "transfer": "3.995046"
+            },
+            {
+                "currency_code": "GBP",
+                "currency": "STERLING POUND",
+                "transfer": "4.680931"
+            },
+            {
+                "currency_code": "CAD",
+                "currency": "CANADIAN DOLLAR",
+                "transfer": "2.929423"
+            },
+            {
+                "currency_code": "AUD",
+                "currency": "Australian Dollar",
+                "transfer": "2.685935"
+            },
+            {
+                "currency_code": "LKR",
+                "currency": "SRI LANKAN RUPEE",
+                "transfer": "0.010534"
+            },
+            {
+                "currency_code": "PKR",
+                "currency": "PAKISTAN RUPEE",
+                "transfer": "0.018355"
+            },
+            {
+                "currency_code": "PHP",
+                "currency": "PHILIPPINE PESO",
+                "transfer": "0.070457"
+            },
+            {
+                "currency_code": "THB",
+                "currency": "THAILAND BAHT",
+                "transfer": "0.108259"
+            },
+            {
+                "currency_code": "USD",
+                "currency": "US DOLLAR",
+                "transfer": "3.68"
+            },
+            {
+                "currency_code": "BHD",
+                "currency": "BAHRAINI DINAR",
+                "transfer": "9.780927"
+            },
+            {
+                "currency_code": "DKK",
+                "currency": "DANISH KRONE",
+                "transfer": "0.540771"
+            },
+            {
+                "currency_code": "EGP",
+                "currency": "EGYPTIAN POUND",
+                "transfer": "0.202225"
+            },
+            {
+                "currency_code": "HKD",
+                "currency": "HONG KONG DOLLAR",
+                "transfer": "0.470855"
+            },
+            {
+                "currency_code": "IDR",
+                "currency": "INDONESIA RUPIAH",
+                "transfer": "0.000258"
+            },
+            {
+                "currency_code": "JPY",
+                "currency": "JAPANESE YEN",
+                "transfer": "0.029"
+            },
+            {
+                "currency_code": "JOD",
+                "currency": "JORDANIAN DINAR",
+                "transfer": "5.218828"
+            },
+            {
+                "currency_code": "KWD",
+                "currency": "KUWAITI DINAR",
+                "transfer": "12.091869"
+            },
+            {
+                "currency_code": "NOK",
+                "currency": "NORWEGIAN KRONE",
+                "transfer": "0.393015"
+            },
+            {
+                "currency_code": "OMR",
+                "currency": "OMANI RIAL",
+                "transfer": "9.572082"
+            },
+            {
+                "currency_code": "QAR",
+                "currency": "QATARI RIYAL",
+                "transfer": "1.01273"
+            },
+            {
+                "currency_code": "SAR",
+                "currency": "SAUDI RIYAL",
+                "transfer": "0.982938"
+            },
+            {
+                "currency_code": "SGD",
+                "currency": "SINGAPORE DOLLAR",
+                "transfer": "2.735972"
+            },
+            {
+                "currency_code": "ZAR",
+                "currency": "SOUTH AFRICAN RAND",
+                "transfer": "0.235847"
+            },
+            {
+                "currency_code": "SEK",
+                "currency": "SWEDISH KRONA",
+                "transfer": "0.382081"
+            },
+            {
+                "currency_code": "CHF",
+                "currency": "SWISS FRANC",
+                "transfer": "3.856819"
+            },
+            {
+                "currency_code": "BDT",
+                "currency": "TAKA-BDD",
+                "transfer": "0.03899"
+            },
+            {
+                "currency_code": "NZD",
+                "currency": "NEWZEALAND DOLLAR",
+                "transfer": "2.398871"
+            }
+        ]
+    }
+}
