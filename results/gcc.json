@@ -1,0 +1,83 @@
+{
+    "Fri Mar 31 2023": {
+        "baseCurrency": "AED",
+        "rates": [
+            {
+                "currency": "Indian Rupees",
+                "currency_code": "INR",
+                "rate": "22.3000"
+            },
+            {
+                "currency": "Pakistani Rupees",
+                "currency_code": "PKR",
+                "rate": "77.1010"
+            },
+            {
+                "currency": "Bangladesh Taka",
+                "currency_code": "BDT",
+                "rate": "29.1206"
+            },
+            {
+                "currency": "Philippine Peso",
+                "currency_code": "PHP",
+                "rate": "14.7702"
+            },
+            {
+                "currency": "Nepalese Rupee",
+                "currency_code": "NPR",
+                "rate": "35.7105"
+            },
+            {
+                "currency": "Sri Lankan Rupee",
+                "currency_code": "LKR",
+                "rate": "89.2061"
+            },
+            {
+                "currency": "Australian Dollar",
+                "currency_code": "AUD",
+                "rate": "0.4039"
+            },
+            {
+                "currency": "Canadian Dollar",
+                "currency_code": "CAD",
+                "rate": "0.3662"
+            },
+            { "currency": "Euro", "currency_code": "EUR", "rate": "0.2497" },
+            {
+                "currency": "Great British Pound",
+                "currency_code": "GBP",
+                "rate": "0.2191"
+            },
+            {
+                "currency": "Hong Kong Dollar",
+                "currency_code": "HKD",
+                "rate": "2.0491"
+            },
+            {
+                "currency": "Japanese Yen",
+                "currency_code": "JPY",
+                "rate": "35.6087"
+            },
+            {
+                "currency": "New Zealand Dollar",
+                "currency_code": "NZD",
+                "rate": "0.4340"
+            },
+            {
+                "currency": "Singapore Dollar",
+                "currency_code": "SGD",
+                "rate": "0.3595"
+            },
+            {
+                "currency": "Swiss Franc",
+                "currency_code": "CHF",
+                "rate": "0.2482"
+            },
+            {
+                "currency": "United States Dollar",
+                "currency_code": "USD",
+                "rate": "0.2722"
+            }
+        ]
+    }
+}

@@ -1,0 +1,247 @@
+{
+    "Fri Mar 31 2023": {
+        "baseCurrency": "AED",
+        "rates": [
+            {
+                "currency": "Australian Dollor",
+                "dd_tt": "2.51",
+                "fc_buy": "2.32",
+                "fc_sell": "2.60"
+            },
+            {
+                "currency": "Swiss Franc",
+                "dd_tt": "3.95",
+                "fc_buy": "3.76",
+                "fc_sell": "4.05"
+            },
+            {
+                "currency": "SriLanka Rupee",
+                "dd_tt": "99.50",
+                "fc_buy": "0.000",
+                "fc_sell": "0.015"
+            },
+            {
+                "currency": "Singapore Dollar",
+                "dd_tt": "2.75",
+                "fc_buy": "2.55",
+                "fc_sell": "2.85"
+            },
+            {
+                "currency": "Phillipines Peso",
+                "dd_tt": "15.00",
+                "fc_buy": "0.055",
+                "fc_sell": "0.068"
+            },
+            {
+                "currency": "US Dollar",
+                "dd_tt": "3.675",
+                "fc_buy": "3.64",
+                "fc_sell": "3.68"
+            },
+            {
+                "currency": "Euro",
+                "dd_tt": "3.91",
+                "fc_buy": "3.75",
+                "fc_sell": "3.99"
+            },
+            {
+                "currency": "UK Pound",
+                "dd_tt": "4.52",
+                "fc_buy": "4.27",
+                "fc_sell": "4.54"
+            },
+            {
+                "currency": "Pakistan Rupee",
+                "dd_tt": "60.7",
+                "fc_buy": "0.00",
+                "fc_sell": "0.019"
+            },
+            {
+                "currency": "Bangladesh Taka",
+                "dd_tt": "29.12",
+                "fc_buy": "0.00",
+                "fc_sell": "0.041"
+            },
+            {
+                "currency": "Nepal Rupee",
+                "dd_tt": "35.5",
+                "fc_buy": "0.023",
+                "fc_sell": "0.036"
+            },
+            {
+                "currency": "Canadian Dollar",
+                "dd_tt": "2.75",
+                "fc_buy": "2.55",
+                "fc_sell": "2.85"
+            },
+            {
+                "currency": "New Zealand DOLLAR",
+                "dd_tt": "2.4",
+                "fc_buy": "2.2",
+                "fc_sell": "2.5"
+            },
+            {
+                "currency": "Japanese Yen",
+                "dd_tt": "0.0346",
+                "fc_buy": "0.021",
+                "fc_sell": "0.033"
+            },
+            {
+                "currency": "Swedish Krona",
+                "dd_tt": "0.38",
+                "fc_buy": "0.29",
+                "fc_sell": "0.41"
+            },
+            {
+                "currency": "Norwegian Krone",
+                "dd_tt": "0.39",
+                "fc_buy": "0.31",
+                "fc_sell": "0.42"
+            },
+            {
+                "currency": "Danish Krone",
+                "dd_tt": "0.58",
+                "fc_buy": "0.00",
+                "fc_sell": "0.00"
+            },
+            {
+                "currency": "Labenese Pound",
+                "dd_tt": "0.002485",
+                "fc_buy": "0.000",
+                "fc_sell": "0.00175"
+            },
+            {
+                "currency": "Egypt Pound",
+                "dd_tt": "0.2175",
+                "fc_buy": "0.10",
+                "fc_sell": "0.19"
+            },
+            {
+                "currency": "Turkey Lira",
+                "dd_tt": "-",
+                "fc_buy": "0.12",
+                "fc_sell": "0.26"
+            },
+            {
+                "currency": "Jordan Dinar",
+                "dd_tt": "5.2010",
+                "fc_buy": "5.05",
+                "fc_sell": "5.25"
+            },
+            {
+                "currency": "Saudi Riyal",
+                "dd_tt": "0.9860",
+                "fc_buy": "0.9500",
+                "fc_sell": "0.9850"
+            },
+            {
+                "currency": "Bahrain Dinar",
+                "dd_tt": "9.78",
+                "fc_buy": "9.60",
+                "fc_sell": "9.81"
+            },
+            {
+                "currency": "Oman Rial",
+                "dd_tt": "9.60",
+                "fc_buy": "9.40",
+                "fc_sell": "9.60"
+            },
+            {
+                "currency": "Yemen Riyal",
+                "dd_tt": "0.00609756",
+                "fc_buy": "0.00",
+                "fc_sell": "0.00"
+            },
+            {
+                "currency": "Scotland Pound",
+                "dd_tt": "-",
+                "fc_buy": "4.22",
+                "fc_sell": "4.57"
+            },
+            {
+                "currency": "S. Africa",
+                "dd_tt": "-",
+                "fc_buy": "0.10",
+                "fc_sell": "0.30"
+            },
+            {
+                "currency": "Tunis Dinar",
+                "dd_tt": "1.385",
+                "fc_buy": "0",
+                "fc_sell": "0"
+            },
+            {
+                "currency": "Ethiopian Birr",
+                "dd_tt": "-",
+                "fc_buy": "0",
+                "fc_sell": "0"
+            },
+            {
+                "currency": "Kuwait Dinar",
+                "dd_tt": "12.10",
+                "fc_buy": "11.65",
+                "fc_sell": "12.05"
+            },
+            {
+                "currency": "Algerian Dinar",
+                "dd_tt": "-",
+                "fc_buy": "0.0",
+                "fc_sell": "0.0"
+            },
+            {
+                "currency": "Morocco Dirham",
+                "dd_tt": "0.39",
+                "fc_buy": "0.25",
+                "fc_sell": "0.45"
+            },
+            {
+                "currency": "Indonesian Rupiah",
+                "dd_tt": "0.0002525",
+                "fc_buy": "0.00017",
+                "fc_sell": "0.00030"
+            },
+            {
+                "currency": "Mauritius Rupee",
+                "dd_tt": "-",
+                "fc_buy": "0.00",
+                "fc_sell": "0.00"
+            },
+            {
+                "currency": "Thailand Bhat",
+                "dd_tt": "0",
+                "fc_buy": "0.083",
+                "fc_sell": "0.15"
+            },
+            {
+                "currency": "Chinese Yuan",
+                "dd_tt": "-",
+                "fc_buy": "0.40",
+                "fc_sell": "0.60"
+            },
+            {
+                "currency": "Taiwan Dollar",
+                "dd_tt": "-",
+                "fc_buy": "0.05",
+                "fc_sell": "0.17"
+            },
+            {
+                "currency": "Brunei Dollar",
+                "dd_tt": "-",
+                "fc_buy": "2.49",
+                "fc_sell": "2.82"
+            },
+            {
+                "currency": "Malaysian Ringgit",
+                "dd_tt": "0",
+                "fc_buy": "0.62",
+                "fc_sell": "0.92"
+            },
+            {
+                "currency": "Indian Ruppee",
+                "dd_tt": "22.10",
+                "fc_buy": "0.035",
+                "fc_sell": "0.050"
+            }
+        ]
+    }
+}

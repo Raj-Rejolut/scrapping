@@ -1,0 +1,38 @@
+{
+    "Fri Mar 31 2023": {
+        "baseCurrency": "AED",
+        "rates": [
+            { "currency_code": "INR", "rate": 22.35 },
+            { "currency_code": "PKR", "rate": 77.15 },
+            { "currency_code": "BDT", "rate": 31.07 },
+            { "currency_code": "PHP", "rate": 14.75 },
+            { "currency_code": "NPR", "rate": 35.73 },
+            { "currency_code": "LKR", "rate": 87.5 },
+            { "currency_code": "THB", "rate": 9.23 },
+            { "currency_code": "UGX", "rate": 1005 },
+            { "currency_code": "EGP", "rate": 8.35 },
+            { "currency_code": "AUD", "rate": 0.3909 },
+            { "currency_code": "BHD", "rate": 0.101 },
+            { "currency_code": "CAD", "rate": 0.359 },
+            { "currency_code": "CHF", "rate": 0.256 },
+            { "currency_code": "DKK", "rate": 2 },
+            { "currency_code": "EUR", "rate": 0.2504 },
+            { "currency_code": "GBP", "rate": 0.221 },
+            { "currency_code": "GHS", "rate": 3.3 },
+            { "currency_code": "IDR", "rate": 4100 },
+            { "currency_code": "JPY", "rate": 35.68 },
+            { "currency_code": "KES", "rate": 35.7 },
+            { "currency_code": "NGN", "rate": 160 },
+            { "currency_code": "NOK", "rate": 2.689 },
+            { "currency_code": "NZD", "rate": 0.0422 },
+            { "currency_code": "OMR", "rate": 0.104613453 },
+            { "currency_code": "RWF", "rate": 256 },
+            { "currency_code": "SAR", "rate": 1.012880949 },
+            { "currency_code": "SEK", "rate": 2.986826244 },
+            { "currency_code": "SGD", "rate": 0.36 },
+            { "currency_code": "USD", "rate": 0.27173913 },
+            { "currency_code": "ZAR", "rate": 4.606 },
+            { "currency_code": "AED", "rate": 0 }
+        ]
+    }
+}

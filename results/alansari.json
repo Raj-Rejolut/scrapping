@@ -1,0 +1,25 @@
+{
+    "Fri Mar 31 2023": {
+        "baseCurrency": "AED",
+        "rates": [
+            { "country": "sri_lanka", "rate": "89.250" },
+            { "country": "nepal", "rate": "35.710" },
+            { "country": "bangladesh", "rate": "29.120" },
+            { "country": "india", "rate": "22.290" },
+            { "country": "pakistan", "rate": "77.050" },
+            { "country": "philippines", "rate": "14.770" },
+            { "country": "united_kingdom", "rate": "0.2200" },
+            { "country": "united_states_of_america", "rate": "0.2700" },
+            { "country": "sri_lanka", "rate": "89.250" },
+            { "country": "nepal", "rate": "35.710" },
+            { "country": "bangladesh", "rate": "29.120" },
+            { "country": "india", "rate": "22.290" },
+            { "country": "pakistan", "rate": "77.050" },
+            { "country": "philippines", "rate": "14.770" },
+            { "country": "united_kingdom", "rate": "0.2200" },
+            { "country": "united_states_of_america", "rate": "0.2700" },
+            { "country": "sri_lanka", "rate": "89.250" },
+            { "country": "nepal", "rate": "35.710" }
+        ]
+    }
+}

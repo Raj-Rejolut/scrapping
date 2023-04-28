@@ -1,0 +1,73 @@
+{
+    "Fri Mar 31 2023": {
+        "baseCurrency": "KWD",
+        "rates": [
+            {
+                "currency_code": "AED",
+                "currency": "UAE DIRHAMS",
+                "cash_buy": "0.0830570",
+                "cash_sell": "0.0838910"
+            },
+            {
+                "currency_code": "BDT",
+                "currency": "BANGLADESH TAKA",
+                "cash_buy": "0.0024500",
+                "cash_sell": "0.0031450"
+            },
+            {
+                "currency_code": "EGP",
+                "currency": "EGYPTIAN POUND",
+                "cash_buy": "0.0072000",
+                "cash_sell": "0.0127000"
+            },
+            {
+                "currency_code": "EUR",
+                "currency": "EURO",
+                "cash_buy": "0.3190000",
+                "cash_sell": "0.3380000"
+            },
+            {
+                "currency_code": "GBP",
+                "currency": "GREAT BRITAIN POUND",
+                "cash_buy": "0.3565000",
+                "cash_sell": "0.3835000"
+            },
+            {
+                "currency_code": "INR",
+                "currency": "INDIAN RUPEES",
+                "cash_buy": "0.0033750",
+                "cash_sell": "0.0039750"
+            },
+            {
+                "currency_code": "LKR",
+                "currency": "SRI LANKAN RUPEES",
+                "cash_buy": "0.0005500",
+                "cash_sell": "0.0012500"
+            },
+            {
+                "currency_code": "PHP",
+                "currency": "PHILIPPINE PESO",
+                "cash_buy": "0.0052750",
+                "cash_sell": "0.0057750"
+            },
+            {
+                "currency_code": "SAR",
+                "currency": "SAUDI RIYAL",
+                "cash_buy": "0.0794000",
+                "cash_sell": "0.0823500"
+            },
+            {
+                "currency_code": "TUR",
+                "currency": "TURKISH LIRA",
+                "cash_buy": "0.0133500",
+                "cash_sell": "0.0168500"
+            },
+            {
+                "currency_code": "USD",
+                "currency": "US DOLLAR",
+                "cash_buy": "0.3018500",
+                "cash_sell": "0.3085500"
+            }
+        ]
+    }
+}
