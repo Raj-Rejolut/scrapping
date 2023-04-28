@@ -299,52 +299,43 @@ const alfardanExchangeAPICallData = {
 const alfardanExchangeRateAPI = async () => {
     console.log('Al Fardan Exchange rates extraction started!');
     const apiCallURL = `https://alfardanexchange.com/currency_converter`;
-    const host = `https://alfardanexchange.com/`;
     const baseCurrency = 'AED';
-    const { data, headers } = await axios.get(`https://alfardanexchange.com/`, { timeout: 60000000 });
-    console.log(headers)
-    alfardanExchangeAPICallData.request_header_cookie = headers.cms["set-cookie"]
-    const currencyCodes = [];
-    const axiosRequests = [];
-    const $ = cheerio.load(data);
-
-    // meta name="csrf-token" 
-    $('[name=csrf-token]').each((i, el) => {
-        if (el.attribs.name != "csrf-token") return
-        alfardanExchangeAPICallData.request_body_token = el.attribs.content
+    const host = `https://alfardanexchange.com/`
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
+    await page.setRequestInterception(true)
+    page.on('request',(req)=>{
+        req.continue()
     })
+    page.on('response', async (response) => {
+        const request = response.request();
+        if (request.url() == apiCallURL) {
+            const text = await response.text();
+            console.log(text);
 
-    $('#will-get > option').each((i, el) => {
-        if (i === 0) return;
-        const res = $(el).html().trim();
-        const newRequest = axios.post(
-            apiCallURL,
-            {
-                _token: alfardanExchangeAPICallData.request_body_token,
-                currency: res,
-                amount: 1,
-                type: 'Cash Rate',
-            },
-            {
-                headers: {
-                    Cookie: alfardanExchangeAPICallData.request_header_cookie,
-                },
-            }
-        ).catch(e => { })
-        axiosRequests.push(newRequest);
-        currencyCodes.push(res);
-    });
+            // fs.writeFileSync("./results/orientExchangeRateAPIRAW.json", text)
+            console.log("done")
+            browser.close()
 
-    const responses = await Promise.all(axiosRequests);
-    console.log("got final data\n", responses)
-    const rates = responses.map((res, i) => ({
-        currency_code: currencyCodes[i],
-        rate: res.data,
-    }));
+        }
+    })
+    await page.setViewport({
+        width: 1920,
+        height: 1080
+    })
+    await page.goto(host)
+    await page.focus('#amount')
+    await page.keyboard.type('1')
+    await page.focus('.currency_dropdown.flagstrap')
+    await page.click('.currency_dropdown.flagstrap')
+    const dropDobtn = await page.waitForSelector('.currency_dropdown.flagstrap');
+    await dropDobtn.click()
+    await page.screenshot({ path: 'clicks_map.png' })    
+    const inrOption = await page.$('#will-get option[value="INR"]');
+    inrOption.click()
+    browser.close()
+    // await inrOption.click();
 
-
-    // await writeToFile('alfardan.json', { baseCurrency, rates });
-    // console.log('Al Fardan Exchange rates extraction completed successfully!', { baseCurrency, rates });
 };
 // alfardanExchangeRateAPI();
 
@@ -444,37 +435,32 @@ const alawnehExchangeRateScrape = async () => {
 
 //Pending It has API call 
 const wallStreetExchangeRateAPI = async () => {
-    console.log('Wall Street Fardan Exchange rates extraction started!');
-    const { data: currencyList } = await axios.get(
-        'https://www.wallstreet.ae/index.php/currency-list?mode=bank_transfer&isAjax=true',
-        { httpsAgent }
-    );
+    const host = `https://www.wallstreet.ae/`
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
 
-    const baseCurrency = 'AED';
-    const baseAmount = 1;
-    const apiCallURL = `https://www.wallstreet.ae/index.php/conversion?base_currency=${baseCurrency}&base_amount=${baseAmount}&is_target=0&base_mode=bank_transfer&isAjax=true&target_currency=`;
-
-    const axiosRequests = [];
-    currencyList.data.forEach((curr) => {
-        const newRequest = axios.get(apiCallURL + curr.currencyCode, {
-            httpsAgent,
-        });
-        axiosRequests.push(newRequest);
-    });
-
-    const responses = await Promise.all(axiosRequests);
-    const rates = responses.map((res, i) => ({
-        currency_code: currencyList.data[i].currencyCode,
-        rate: res.data?.data?.target_amount ?? 0,
-    }));
-
-    await writeToFile('wallstreet.json', { baseCurrency, rates });
-    console.log(
-        'Wall Street Exchange rates extraction completed successfully!'
-    );
+    page.setRequestInterception(true)
+    page.on('request',request=>{
+        request.continue()
+    })
+    page.on('response',response=>{
+        const request = response.request()
+        if(request.url().includes('?')){
+            if(request.url().split("?")[0]=='https://www.wallstreet.ae/index.php/conversion'){
+                console.log("=--------------------------")
+                response.text().then(text=>{
+                    fs.writeFileSync("./results/wallStreeData.json",text)
+                    console.log("done")
+                    browser.close()
+                })
+            }
+        }
+    })
+    await page.goto(host)
+    browser.close()
 };
 
-// wallStreetExchangeRateAPI()
+wallStreetExchangeRateAPI()
 
 
 
