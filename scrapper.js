@@ -304,6 +304,7 @@ const alfardanExchangeRateAPI = async () => {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.setRequestInterception(true)
+    let finalData = {baseCurrency:"AED"}
     let results = []
     let states = [
         "GBP",
@@ -352,11 +353,10 @@ const alfardanExchangeRateAPI = async () => {
         const request = response.request();
         if (request.url() == apiCallURL) {
             const text = await response.text();
-            console.log(text);
             let obj ={}
-            obj[request.postData().split("&currency=")[1].split("&amount")[0]] = text
+            obj["currency_code"] = request.postData().split("&currency=")[1].split("&amount")[0]
+            obj["buy"] = text
             results.push(obj)
-            console.log(obj)
             // fs.writeFileSync("./results/orientExchangeRateAPIRAW.json", text)
         }
     })
@@ -370,19 +370,16 @@ const alfardanExchangeRateAPI = async () => {
 
     await page.focus('#will-get')
     for(let i = 0; i<states.length ; i++){
-        console.log(states[i])
         await page.select('#will-get', states[i])
         console.log("done selecting")
     }
     
-    
-setTimeout(() => {
-    fs.writeFileSync("./results/alfardanRaw.json",JSON.stringify(results))
-  }, 3000);
-  
+    finalData.rates = results
+    browser.close()
+    return finalData
 
 };
-alfardanExchangeRateAPI();
+alfardanExchangeRateAPI().then(console.log)
 
 
 //Pending It has API call data
