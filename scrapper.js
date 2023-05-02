@@ -304,19 +304,60 @@ const alfardanExchangeRateAPI = async () => {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.setRequestInterception(true)
-    page.on('request',(req)=>{
+    let results = []
+    let states = [
+        "GBP",
+        "EUR",
+        "OMR",
+        "BHD",
+        "EGP",
+        "HKD",
+        "NOK",
+        "NZD",
+        "NPR",
+        "JOD",
+        "YER",
+        "SGD",
+        "CNY",
+        "QAR",
+        "SAR",
+        "LKR",
+        "PHP",
+        "JPY",
+        "USD",
+        "CHF",
+        "PKR",
+        "BDT",
+        "DKK",
+        "INR",
+        "THB",
+        "IDR",
+        "AUD",
+        "CAD",
+        "KWD",
+        "ZAR",
+        "MAD",
+        "MYR",
+        "SEK",
+        "LBP",
+        "SYP",
+        "CYP",
+        "TND",
+        "TRY"]
+    page.on('request', (req) => {
         req.continue()
     })
+
     page.on('response', async (response) => {
         const request = response.request();
         if (request.url() == apiCallURL) {
             const text = await response.text();
             console.log(text);
-
+            let obj ={}
+            obj[request.postData().split("&currency=")[1].split("&amount")[0]] = text
+            results.push(obj)
+            console.log(obj)
             // fs.writeFileSync("./results/orientExchangeRateAPIRAW.json", text)
-            console.log("done")
-            browser.close()
-
         }
     })
     await page.setViewport({
@@ -326,18 +367,22 @@ const alfardanExchangeRateAPI = async () => {
     await page.goto(host)
     await page.focus('#amount')
     await page.keyboard.type('1')
-    await page.focus('.currency_dropdown.flagstrap')
-    await page.click('.currency_dropdown.flagstrap')
-    const dropDobtn = await page.waitForSelector('.currency_dropdown.flagstrap');
-    await dropDobtn.click()
-    await page.screenshot({ path: 'clicks_map.png' })    
-    const inrOption = await page.$('#will-get option[value="INR"]');
-    inrOption.click()
-    browser.close()
-    // await inrOption.click();
+
+    await page.focus('#will-get')
+    for(let i = 0; i<states.length ; i++){
+        console.log(states[i])
+        await page.select('#will-get', states[i])
+        console.log("done selecting")
+    }
+    
+    
+setTimeout(() => {
+    fs.writeFileSync("./results/alfardanRaw.json",JSON.stringify(results))
+  }, 3000);
+  
 
 };
-// alfardanExchangeRateAPI();
+alfardanExchangeRateAPI();
 
 
 //Pending It has API call data
@@ -440,16 +485,16 @@ const wallStreetExchangeRateAPI = async () => {
     const page = await browser.newPage()
 
     page.setRequestInterception(true)
-    page.on('request',request=>{
+    page.on('request', request => {
         request.continue()
     })
-    page.on('response',response=>{
+    page.on('response', response => {
         const request = response.request()
-        if(request.url().includes('?')){
-            if(request.url().split("?")[0]=='https://www.wallstreet.ae/index.php/conversion'){
+        if (request.url().includes('?')) {
+            if (request.url().split("?")[0] == 'https://www.wallstreet.ae/index.php/conversion') {
                 console.log("=--------------------------")
-                response.text().then(text=>{
-                    fs.writeFileSync("./results/wallStreeData.json",text)
+                response.text().then(text => {
+                    fs.writeFileSync("./results/wallStreeData.json", text)
                     console.log("done")
                     browser.close()
                 })
@@ -460,7 +505,7 @@ const wallStreetExchangeRateAPI = async () => {
     browser.close()
 };
 
-wallStreetExchangeRateAPI()
+// wallStreetExchangeRateAPI()
 
 
 
