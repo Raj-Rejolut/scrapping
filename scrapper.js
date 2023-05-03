@@ -25,34 +25,64 @@ const writeToFile = async (fileName, data) => {
 //Pending It has country and rate
 const alansariExchangeRateScrape = async () => {
     console.log('Al Ansari Exchange rates extraction started!');
+    const apiCallURL = 'https://alansari.dev.onpressidium.com/wp-admin/admin-ajax.php'
+    const host = `https://alansariexchange.com/#nogo`
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
+    let data;
+    await page.setRequestInterception(true)
+    let obj = {
+        "baseCurrency": "AED",
+        "rates": []
+    }
+    page.on('request', (req) => {
+        req.continue()
+    })
 
-    const browser = await puppeteer.launch({ headless: true });
-    // scraping logic comes here…
-    const page = await browser.newPage();
-    await page.goto('https://alansariexchange.com/#nogo', {
-        waitUntil: 'load',
-        timeout: 60000,
+    page.on('response', async (response) => {
+        const request = response.request();
+        // console.log(request.url())
+        if (request.url() == apiCallURL) {
+
+            const payload = request.postData().split('&').reduce((acc, curr) => {
+                const [key, value] = curr.split('=');
+                acc[key] = value;
+                return acc;
+            }, {});
+            const text = await response.text();
+            let responseData = JSON.parse(text)
+            let dataCode = data.find(data => {
+                return data.cntcode == payload.cntcode
+            })
+
+            obj.rates.push({
+                "currency_code": dataCode.ccyname,
+                "buy": responseData.get_rate,
+            })
+
+            browser.close()
+
+            // fs.writeFileSync("./results/orientExchangeRateAPIRAW.json", text)
+        }
+    })
+
+    await page.goto(host)
+
+    data = await page.evaluate(() => {
+        const currencies = Array.from(document.querySelectorAll('ul.currency-select li'));
+        return currencies.map(currency => {
+            const ccyname = currency.querySelector('span').getAttribute('data-ccyname');
+            const cntcode = currency.querySelector('span').getAttribute('data-cntcode');
+            return { ccyname, cntcode };
+        });
     });
 
-    await page.waitForSelector('.slick-track', { timeout: 120000 });
+    await page.click('#aed-cur')
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    return obj
 
-    const baseCurrency = 'AED';
 
-    const rates = await page.evaluate(() => {
-        let sliderItems = document.body.querySelectorAll('.item.slick-slide');
-        return Object.values(sliderItems)
-            .map((x) => ({
-                country: x.querySelector('div').classList[1] ?? '',
-                rate:
-                    x.querySelector('p > strong')?.textContent?.trim() ?? null,
-            }))
-            .filter((row) => row.country && row.rate);
-    });
 
-    await browser.close();
-
-    // await writeToFile('alansari.json', { baseCurrency, rates });
-    console.log('Al Ansari Exchange rates extraction completed successfully!', { baseCurrency, rates });
 };
 // alansariExchangeRateScrape();
 
@@ -304,7 +334,7 @@ const alfardanExchangeRateAPI = async () => {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.setRequestInterception(true)
-    let finalData = {baseCurrency:"AED"}
+    let finalData = { baseCurrency: "AED" }
     let results = []
     let states = [
         "GBP",
@@ -353,7 +383,7 @@ const alfardanExchangeRateAPI = async () => {
         const request = response.request();
         if (request.url() == apiCallURL) {
             const text = await response.text();
-            let obj ={}
+            let obj = {}
             obj["currency_code"] = request.postData().split("&currency=")[1].split("&amount")[0]
             obj["buy"] = text
             results.push(obj)
@@ -369,17 +399,17 @@ const alfardanExchangeRateAPI = async () => {
     await page.keyboard.type('1')
 
     await page.focus('#will-get')
-    for(let i = 0; i<states.length ; i++){
+    for (let i = 0; i < states.length; i++) {
         await page.select('#will-get', states[i])
         console.log("done selecting")
     }
-    
+
     finalData.rates = results
     browser.close()
     return finalData
 
 };
-alfardanExchangeRateAPI().then(console.log)
+// alfardanExchangeRateAPI().then(console.log)
 
 
 //Pending It has API call data
