@@ -56,8 +56,9 @@ const alansariExchangeRateScrape = async () => {
             })
 
             obj.rates.push({
-                "currency_code": dataCode.ccyname,
+                "targetCurrency": dataCode.ccyname,
                 "buy": responseData.get_rate,
+                "baseCurrency": 'AED',
             })
 
             browser.close()
@@ -79,12 +80,10 @@ const alansariExchangeRateScrape = async () => {
 
     await page.click('#aed-cur')
     await new Promise(resolve => setTimeout(resolve, 2000));
-    return obj
-
-
+    return obj.rates
 
 };
-// alansariExchangeRateScrape();
+alansariExchangeRateScrape().then(console.log);
 
 //Pending BaseCurrency is BHR
 const bfcExchangeRateScrape = async () => {
@@ -413,7 +412,7 @@ const alfardanExchangeRateAPI = async () => {
     return finalData.rates
 
 };
-alfardanExchangeRateAPI().then(console.log)
+// alfardanExchangeRateAPI().then(console.log)
 
 
 //Pending It has API call data
