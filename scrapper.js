@@ -382,14 +382,14 @@ const alfardanExchangeRateAPI = async () => {
     page.on('response', (response) => {
         const request = response.request();
         if (request.url() == apiCallURL) {
-            response.text().then(text=>{
+            response.text().then(text => {
                 let obj = {}
                 obj["targetCurrency"] = request.postData().split("&currency=")[1].split("&amount")[0]
                 obj["baseCurrency"] = 'AED'
                 obj["buy"] = text
                 results.push(obj)
             });
-         
+
             // fs.writeFileSync("./results/orientExchangeRateAPIRAW.json", text)
         }
     })
@@ -416,10 +416,10 @@ const alfardanExchangeRateAPI = async () => {
 // alfardanExchangeRateAPI().then(console.log)
 
 
-const moneyGramExchangeRateAPI= async ()=>{
+const moneyGramExchangeRateAPI = async () => {
 
     const host = `https://www.moneygram.com/mgo/us/en/`
-    const browser = await puppeteer.launch({headless:false})
+    const browser = await puppeteer.launch({ headless: false })
     const page = await browser.newPage()
     const apiCallURL = `https://consumerapi.moneygram.com/services/capi/api/v1/sendMoney/feeLookup`
     const contriesAPI = ` https://consumerapi.moneygram.com/services/capi/api/v1/config/countries`
@@ -435,7 +435,7 @@ const moneyGramExchangeRateAPI= async ()=>{
         const request = response.request();
         if (request.url().split("?")[0] == apiCallURL) {
 
-            response.text().then(text=>{
+            response.text().then(text => {
                 let obj = {}
                 obj["targetCurrency"] = request.postData().split("&currency=")[1].split("&amount")[0]
                 obj["baseCurrency"] = 'AED'
@@ -451,7 +451,7 @@ const moneyGramExchangeRateAPI= async ()=>{
     console.log("cookies accepted")
     // await page.waitForNavigation()
     console.log("wait ended")
-    await page.evaluate( () => {
+    await page.evaluate(() => {
         window.scrollBy(0, window.innerHeight);
     });
     console.log("waiting for 500")
@@ -461,7 +461,7 @@ const moneyGramExchangeRateAPI= async ()=>{
     console.log("making focus")
     await page.keyboard.type('1')
     console.log("typed 1 ")
-    await page.screenshot({path:"./moneyGram.jpg"})
+    await page.screenshot({ path: "./moneyGram.jpg" })
 
     // for (let i= 0 ; i<moneyGramData.length ; i ++){
     //     console.log(moneyGramData[i].name)
@@ -472,223 +472,290 @@ const moneyGramExchangeRateAPI= async ()=>{
 
 }
 
-moneyGramExchangeRateAPI()
-//Pending It has API call data
-const orientExchangeRateAPICallData = {
-    request_headers_cookie:
-        'PHPSESSID=4bav63k7keo7onfl9m1qkojqh4; twk_idm_key=_H7mToBGm7F-nrxDd_zpL; TawkConnectionTime=0; twk_uuid_5875f3e75e0a9c5f1bae19f6={"uuid":"1.92N2CTWqcb2TQaNQXzfcVhjtSNfVushcIS0jvNd9qtwGjxXtVbqKWz1Onj6NoSmaD5gmdGNb1d7F2hglElRUCeDiGx3lqoQKM031qwfeh1eSm5CWwHV2vworj3uR","version":3,"domain":"orientexchange.in","ts":1680244707426}; __cf_bm=EG4RHAvoLKKobgFxhMiqJicPpKKcw9IvBYTXDu8jS8c-1680244708-0-AaZB6nBHUTx3eMfebrzqhgLgFeghYKXTMBf9fnPXAvilXp8UqE80jm8UIMHl+PxuhsfAhMGKLR32PzKp4lKJL6JTGG33Dik+0tdwin8iP8dKB2/CXnbxjoSq2H9vMbpmxg==',
-    request_headers_content_type:
-        'application/x-www-form-urlencoded; charset=UTF-8',
-};
+// moneyGramExchangeRateAPI()
 
 
-//Pending same as orientExchangeRateAPICallData
-const orientExchangeRateAPI = async () => {
-    console.log('Orient Exchange rates extraction started!');
-    const baseCurrency = 'INR';
-    const apiCallURL = `https://www.orientexchange.in/live_exchange_rates`;
-    const host = `https://www.orientexchange.in/foreign-currency`;
-
+const xeExchangeRateAPI = async () => {
     const browser = await puppeteer.launch({ headless: true })
     const page = await browser.newPage()
-    page.viewport(1920, 1080)
-    page.setRequestInterception(true)
 
-    page.on('request', (request) => {
-        request.continue()
-    })
-    page.on('response', async (response) => {
-        const request = response.request();
-        if (request.url() == apiCallURL) {
-            const text = await response.text();
-            console.log(typeof text);
-            // fs.writeFile("./results/orientExchangeRateAPIRAW.json",text,{mode:'rw+'})
-            fs.writeFileSync("./results/orientExchangeRateAPIRAW.json", text)
-            console.log("done")
-            browser.close()
-
-        }
-    })
-
-    await page.goto(host, { timeout: 600000, waitUntil: "domcontentloaded" })
-    console.log("page loaded")
-    // console.log(await page.content())
-    await page.screenshot({ path: 'clicks_map.png' })
-    // await page.$$eval('.btn.dropdown-toggle.bs-placeholder.btn-default',async elements => await console.log("elelesadddddddd==========",elements));
-    const element = await page.waitForSelector('.btn.dropdown-toggle.bs-placeholder.btn-default');
-    // Do something with element...
-    await element.click();
-
-    const liIndexToClick = 3; // replace with the index of the li element you want to click on (starting from 0)
-    const liSelector = `.dropdown-menu.inner li[data-original-index="${liIndexToClick}"] a`;
-
-    await page.waitForSelector(liSelector);
-    await page.click(liSelector);
-    // browser.close()
-};
-// orientExchangeRateAPI();
-
-
-//Done
-const alawnehExchangeRateScrape = async () => {
-    console.log('Alawneh Exchange rates extraction started!');
-
-    const browser = await puppeteer.launch({ headless: false });
-    // scraping logic comes here…
-    const page = await browser.newPage();
-    await page.goto('https://alawnehexchange.com/en/currency_exchange');
-
-    await page.waitForSelector('#tablefield-wrapper-0');
-
-    const baseCurrency = 'AED';
-
-    const rates = await page.evaluate(() => {
-        let tableRows = document.body.querySelectorAll(
-            '#tablefield-wrapper-0 table tbody tr'
-        );
-        return Array.from(tableRows, (row) => {
-            const columns = row.querySelectorAll('td');
-            const [currency_code, buy, sell, ...rest] = Array.from(
-                columns,
-                (column) => column.innerText
-            );
-            return {
-                currency_code,
-                buy,
-                sell,
-            };
-        });
-    });
-
-    await browser.close();
-
-    await writeToFile('alawneh.json', { baseCurrency, rates });
-    console.log('Alawneh Exchange rates extraction completed successfully!');
-};
-
-//Pending It has API call 
-const wallStreetExchangeRateAPI = async () => {
-    const host = `https://www.wallstreet.ae/`
-    const browser = await puppeteer.launch()
-    const page = await browser.newPage()
-
-    page.setRequestInterception(true)
-    page.on('request', request => {
-        request.continue()
-    })
-    page.on('response', response => {
-        const request = response.request()
-        if (request.url().includes('?')) {
-            if (request.url().split("?")[0] == 'https://www.wallstreet.ae/index.php/conversion') {
-                console.log("=--------------------------")
-                response.text().then(text => {
-                    fs.writeFileSync("./results/wallStreeData.json", text)
-                    console.log("done")
-                    browser.close()
-                })
+    await page.goto(`https://www.xe.com/`)
+    let results = []
+    const button = await page.evaluate(el => {
+        const buttons = document.querySelectorAll('.button__BaseButton-sc-1qpsalo-0.clGTKJ');
+        buttons.forEach((button) => {
+            if (button.textContent === 'Convert' && button.tagName === 'BUTTON') {
+                button.click()
             }
-        }
+        });
     })
-    await page.goto(host)
+    let count = 1
+    console.log("total turn" , 215*215)
+    for (let i = 0; i < 216; i++) {
+        try{
+        await page.click('#midmarketFromCurrency')
+        await page.click(`#midmarketFromCurrency-option-${i}`)
+        await new Promise(res => { setTimeout(res, 100) })
+        for (let j = 0; j < 216; j++) {
+                await page.click('#midmarketToCurrency')
+                await page.click(`#midmarketToCurrency-option-${j}`)
+                // await new Promise(res => { setTimeout(res, 100) })
+
+                const valueRes = await page.evaluate(() => {
+                    const element = document.querySelector('p.result__BigRate-sc-1bsijpp-1.iGrAod');
+                    const text = element.textContent.trim();
+                    const number = parseFloat(text);
+                    return number;
+                });
+                const fromCurrency = await page.evaluate(() => {
+                    const element = document.querySelector('div#midmarketFromCurrency-descriptiveText span.dark-text');
+                    const text = element.textContent.trim();
+                    return text;
+                  });
+                  const toCurrency = await page.evaluate(() => {
+                    const element = document.querySelector('div#midmarketToCurrency-descriptiveText span.dark-text');
+                    const text = element.textContent.trim();
+                    return text;
+                  });
+                  if(fromCurrency == toCurrency){
+                    continue
+                  }
+                let obj = {
+                    "baseCurrency":fromCurrency.split(" ")[0],
+                    "targetCurrency":toCurrency.split(" ")[0],
+                    "buy":valueRes
+                }
+                console.log("happening",count)
+                count++
+                results.push(obj)
+        }
+    } catch (err) {
+        continue
+    }
+
+    }
     browser.close()
-};
+    return results
+}
+xeExchangeRateAPI().then(console.log)
 
-// wallStreetExchangeRateAPI()
+
+    //Pending It has API call data
+    const orientExchangeRateAPICallData = {
+        request_headers_cookie:
+            'PHPSESSID=4bav63k7keo7onfl9m1qkojqh4; twk_idm_key=_H7mToBGm7F-nrxDd_zpL; TawkConnectionTime=0; twk_uuid_5875f3e75e0a9c5f1bae19f6={"uuid":"1.92N2CTWqcb2TQaNQXzfcVhjtSNfVushcIS0jvNd9qtwGjxXtVbqKWz1Onj6NoSmaD5gmdGNb1d7F2hglElRUCeDiGx3lqoQKM031qwfeh1eSm5CWwHV2vworj3uR","version":3,"domain":"orientexchange.in","ts":1680244707426}; __cf_bm=EG4RHAvoLKKobgFxhMiqJicPpKKcw9IvBYTXDu8jS8c-1680244708-0-AaZB6nBHUTx3eMfebrzqhgLgFeghYKXTMBf9fnPXAvilXp8UqE80jm8UIMHl+PxuhsfAhMGKLR32PzKp4lKJL6JTGG33Dik+0tdwin8iP8dKB2/CXnbxjoSq2H9vMbpmxg==',
+        request_headers_content_type:
+            'application/x-www-form-urlencoded; charset=UTF-8',
+    };
 
 
+    //Pending same as orientExchangeRateAPICallData
+    const orientExchangeRateAPI = async () => {
+        console.log('Orient Exchange rates extraction started!');
+        const baseCurrency = 'INR';
+        const apiCallURL = `https://www.orientexchange.in/live_exchange_rates`;
+        const host = `https://www.orientexchange.in/foreign-currency`;
 
-//Pending It has API call
-const alfardan2ExchangeRateScrape = async () => {
-    console.log('Al Fardan Exchange rates extraction started!');
+        const browser = await puppeteer.launch({ headless: true })
+        const page = await browser.newPage()
+        page.viewport(1920, 1080)
+        page.setRequestInterception(true)
 
-    const res = await axios.get(
-        'https://www.alfardanexchange.com.qa/wp-admin/admin-ajax.php?wpml_lang=en&action=crb_get_paginated_currency_rates&currencyId=135&postsPerPage=100&page=1'
-    );
-    console.log(res.data)
-    const rates = res?.data?.data?.rates
-        ? Object.values(res.data.data.rates).map(
-            ({ currency_code, buy, sell, transfer }) => ({
-                currency_code,
-                buy,
-                sell,
-                transfer,
-            })
-        )
-        : [];
+        page.on('request', (request) => {
+            request.continue()
+        })
+        page.on('response', async (response) => {
+            const request = response.request();
+            if (request.url() == apiCallURL) {
+                const text = await response.text();
+                console.log(typeof text);
+                // fs.writeFile("./results/orientExchangeRateAPIRAW.json",text,{mode:'rw+'})
+                fs.writeFileSync("./results/orientExchangeRateAPIRAW.json", text)
+                console.log("done")
+                browser.close()
 
-    const baseCurrency = 'QAR';
+            }
+        })
 
-    await writeToFile('alfardan2.json', { baseCurrency, rates });
-    console.log('Al Fardan rates extraction completed successfully!');
-};
-// alfardan2ExchangeRateScrape()
+        await page.goto(host, { timeout: 600000, waitUntil: "domcontentloaded" })
+        console.log("page loaded")
+        // console.log(await page.content())
+        await page.screenshot({ path: 'clicks_map.png' })
+        // await page.$$eval('.btn.dropdown-toggle.bs-placeholder.btn-default',async elements => await console.log("elelesadddddddd==========",elements));
+        const element = await page.waitForSelector('.btn.dropdown-toggle.bs-placeholder.btn-default');
+        // Do something with element...
+        await element.click();
 
-//Pending It has API call
-const abusheikhExchangeRateAPI = async () => {
-    console.log('Abusheikh Exchange rates extraction started!');
-    const { data } = await axios.get(
-        'https://abusheikhaex.com/news/currency-exchange-made-simple-4-ways-get-best-rate', { timeout: 600000 }
-    );
+        const liIndexToClick = 3; // replace with the index of the li element you want to click on (starting from 0)
+        const liSelector = `.dropdown-menu.inner li[data-original-index="${liIndexToClick}"] a`;
 
-    const axiosRequests = [];
-    const currencyCodes = [];
-    const $ = cheerio.load(data);
-    const apiCallURL = `https://api.currconv.com/api/v7/convert?apiKey=0600e5fa-87e2-49ad-a07a-043a6a2ee1a7&compact=ultra&q=AED_`;
+        await page.waitForSelector(liSelector);
+        await page.click(liSelector);
+        // browser.close()
+    };
+    // orientExchangeRateAPI();
 
-    $('#to > option').each((i, el) => {
-        const res = $(el).attr('value');
-        const newRequest = axios.get(apiCallURL + res);
-        axiosRequests.push(newRequest);
-        currencyCodes.push(res);
-    });
 
-    const responses = await Promise.all(axiosRequests);
-    const baseCurrency = 'AED';
-    const rates = responses.map((res, i) => ({
-        currency_code: currencyCodes[i],
-        rate: res.data[`AED_${currencyCodes[i]}`] ?? 0,
-    }));
+    //Done
+    const alawnehExchangeRateScrape = async () => {
+        console.log('Alawneh Exchange rates extraction started!');
 
-    await writeToFile('abusheikh.json', { baseCurrency, rates });
-    console.log('Abusheikh rates extraction completed successfully!');
-};
+        const browser = await puppeteer.launch({ headless: false });
+        // scraping logic comes here…
+        const page = await browser.newPage();
+        await page.goto('https://alawnehexchange.com/en/currency_exchange');
 
-//Done
-const gccExchangeRateScrape = async () => {
-    console.log('GCC Exchange rates extraction started!');
+        await page.waitForSelector('#tablefield-wrapper-0');
 
-    const browser = await puppeteer.launch({ headless: false });
-    // scraping logic comes here…
-    const page = await browser.newPage();
-    await page.goto('https://www.gccexchange.com/uae-currency-exchange-rates');
+        const baseCurrency = 'AED';
 
-    await page.waitForSelector('#currencyexchangerate');
-
-    const baseCurrency = 'AED';
-
-    const rates = await page.evaluate(() => {
-        let tableRows = document.body.querySelectorAll(
-            '#currencyexchangerate tbody tr'
-        );
-        return Array.from(tableRows, (row) => {
-            const columns = row.querySelectorAll('td');
-            const [currency, currency_code, rate] = Array.from(
-                columns,
-                (column) => column.innerText
+        const rates = await page.evaluate(() => {
+            let tableRows = document.body.querySelectorAll(
+                '#tablefield-wrapper-0 table tbody tr'
             );
-            return {
-                currency,
-                currency_code,
-                rate,
-            };
-        }).filter((row) => row.currency && row.currency_code && row.rate);
-    });
+            return Array.from(tableRows, (row) => {
+                const columns = row.querySelectorAll('td');
+                const [currency_code, buy, sell, ...rest] = Array.from(
+                    columns,
+                    (column) => column.innerText
+                );
+                return {
+                    currency_code,
+                    buy,
+                    sell,
+                };
+            });
+        });
 
-    await browser.close();
+        await browser.close();
 
-    // await writeToFile('gcc.json', { baseCurrency, rates });
-    console.log('GCC Exchange rates extraction completed successfully!', { baseCurrency, rates });
-};
+        await writeToFile('alawneh.json', { baseCurrency, rates });
+        console.log('Alawneh Exchange rates extraction completed successfully!');
+    };
+
+    //Pending It has API call 
+    const wallStreetExchangeRateAPI = async () => {
+        const host = `https://www.wallstreet.ae/`
+        const browser = await puppeteer.launch()
+        const page = await browser.newPage()
+
+        page.setRequestInterception(true)
+        page.on('request', request => {
+            request.continue()
+        })
+        page.on('response', response => {
+            const request = response.request()
+            if (request.url().includes('?')) {
+                if (request.url().split("?")[0] == 'https://www.wallstreet.ae/index.php/conversion') {
+                    console.log("=--------------------------")
+                    response.text().then(text => {
+                        fs.writeFileSync("./results/wallStreeData.json", text)
+                        console.log("done")
+                        browser.close()
+                    })
+                }
+            }
+        })
+        await page.goto(host)
+        browser.close()
+    };
+
+    // wallStreetExchangeRateAPI()
+
+
+
+    //Pending It has API call
+    const alfardan2ExchangeRateScrape = async () => {
+        console.log('Al Fardan Exchange rates extraction started!');
+
+        const res = await axios.get(
+            'https://www.alfardanexchange.com.qa/wp-admin/admin-ajax.php?wpml_lang=en&action=crb_get_paginated_currency_rates&currencyId=135&postsPerPage=100&page=1'
+        );
+        console.log(res.data)
+        const rates = res?.data?.data?.rates
+            ? Object.values(res.data.data.rates).map(
+                ({ currency_code, buy, sell, transfer }) => ({
+                    currency_code,
+                    buy,
+                    sell,
+                    transfer,
+                })
+            )
+            : [];
+
+        const baseCurrency = 'QAR';
+
+        await writeToFile('alfardan2.json', { baseCurrency, rates });
+        console.log('Al Fardan rates extraction completed successfully!');
+    };
+    // alfardan2ExchangeRateScrape()
+
+    //Pending It has API call
+    const abusheikhExchangeRateAPI = async () => {
+        console.log('Abusheikh Exchange rates extraction started!');
+        const { data } = await axios.get(
+            'https://abusheikhaex.com/news/currency-exchange-made-simple-4-ways-get-best-rate', { timeout: 600000 }
+        );
+
+        const axiosRequests = [];
+        const currencyCodes = [];
+        const $ = cheerio.load(data);
+        const apiCallURL = `https://api.currconv.com/api/v7/convert?apiKey=0600e5fa-87e2-49ad-a07a-043a6a2ee1a7&compact=ultra&q=AED_`;
+
+        $('#to > option').each((i, el) => {
+            const res = $(el).attr('value');
+            const newRequest = axios.get(apiCallURL + res);
+            axiosRequests.push(newRequest);
+            currencyCodes.push(res);
+        });
+
+        const responses = await Promise.all(axiosRequests);
+        const baseCurrency = 'AED';
+        const rates = responses.map((res, i) => ({
+            currency_code: currencyCodes[i],
+            rate: res.data[`AED_${currencyCodes[i]}`] ?? 0,
+        }));
+
+        await writeToFile('abusheikh.json', { baseCurrency, rates });
+        console.log('Abusheikh rates extraction completed successfully!');
+    };
+
+    //Done
+    const gccExchangeRateScrape = async () => {
+        console.log('GCC Exchange rates extraction started!');
+
+        const browser = await puppeteer.launch({ headless: false });
+        // scraping logic comes here…
+        const page = await browser.newPage();
+        await page.goto('https://www.gccexchange.com/uae-currency-exchange-rates');
+
+        await page.waitForSelector('#currencyexchangerate');
+
+        const baseCurrency = 'AED';
+
+        const rates = await page.evaluate(() => {
+            let tableRows = document.body.querySelectorAll(
+                '#currencyexchangerate tbody tr'
+            );
+            return Array.from(tableRows, (row) => {
+                const columns = row.querySelectorAll('td');
+                const [currency, currency_code, rate] = Array.from(
+                    columns,
+                    (column) => column.innerText
+                );
+                return {
+                    currency,
+                    currency_code,
+                    rate,
+                };
+            }).filter((row) => row.currency && row.currency_code && row.rate);
+        });
+
+        await browser.close();
+
+        // await writeToFile('gcc.json', { baseCurrency, rates });
+        console.log('GCC Exchange rates extraction completed successfully!', { baseCurrency, rates });
+    };
 
 // const alghurairExchangeRateAPI = async () => {
 //     try {
@@ -709,4 +776,3 @@ const gccExchangeRateScrape = async () => {
 // };
 
 // alghurairExchangeRateAPI().then((res) => res);
-
