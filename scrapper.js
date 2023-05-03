@@ -2,7 +2,8 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer-extra')
 const fs = require("fs")
-
+const moneyGramContryData = require("./moneyGramContries")
+let moneyGramData = moneyGramContryData.data
 // add stealth plugin and use defaults (all evasion techniques) 
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin())
@@ -83,7 +84,7 @@ const alansariExchangeRateScrape = async () => {
     return obj.rates
 
 };
-alansariExchangeRateScrape().then(console.log);
+// alansariExchangeRateScrape().then(console.log);
 
 //Pending BaseCurrency is BHR
 const bfcExchangeRateScrape = async () => {
@@ -415,6 +416,63 @@ const alfardanExchangeRateAPI = async () => {
 // alfardanExchangeRateAPI().then(console.log)
 
 
+const moneyGramExchangeRateAPI= async ()=>{
+
+    const host = `https://www.moneygram.com/mgo/us/en/`
+    const browser = await puppeteer.launch({headless:false})
+    const page = await browser.newPage()
+    const apiCallURL = `https://consumerapi.moneygram.com/services/capi/api/v1/sendMoney/feeLookup`
+    const contriesAPI = ` https://consumerapi.moneygram.com/services/capi/api/v1/config/countries`
+
+    await page.viewport(1920, 1080)
+    await page.setRequestInterception(true)
+
+    page.on('request', (req) => {
+        req.continue()
+    })
+
+    page.on('response', async (response) => {
+        const request = response.request();
+        if (request.url().split("?")[0] == apiCallURL) {
+
+            response.text().then(text=>{
+                let obj = {}
+                obj["targetCurrency"] = request.postData().split("&currency=")[1].split("&amount")[0]
+                obj["baseCurrency"] = 'AED'
+                obj["buy"] = `text`
+                results.push(obj)
+            });
+        }
+    })
+
+    await page.goto(host)
+    console.log("accepting cookies")
+    await page.click('#truste-consent-buttons')
+    console.log("cookies accepted")
+    // await page.waitForNavigation()
+    console.log("wait ended")
+    await page.evaluate( () => {
+        window.scrollBy(0, window.innerHeight);
+    });
+    console.log("waiting for 500")
+    await page.waitForSelector('#send')
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    await page.focus("#send")
+    console.log("making focus")
+    await page.keyboard.type('1')
+    console.log("typed 1 ")
+    await page.screenshot({path:"./moneyGram.jpg"})
+
+    // for (let i= 0 ; i<moneyGramData.length ; i ++){
+    //     console.log(moneyGramData[i].name)
+    //     await page.focus('#receiveCountry')
+    //     await page.keyboard.type(moneyGramData[i].name)
+    // }
+
+
+}
+
+moneyGramExchangeRateAPI()
 //Pending It has API call data
 const orientExchangeRateAPICallData = {
     request_headers_cookie:
