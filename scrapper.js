@@ -379,14 +379,17 @@ const alfardanExchangeRateAPI = async () => {
         req.continue()
     })
 
-    page.on('response', async (response) => {
+    page.on('response', (response) => {
         const request = response.request();
         if (request.url() == apiCallURL) {
-            const text = await response.text();
-            let obj = {}
-            obj["currency_code"] = request.postData().split("&currency=")[1].split("&amount")[0]
-            obj["buy"] = text
-            results.push(obj)
+            response.text().then(text=>{
+                let obj = {}
+                obj["targetCurrency"] = request.postData().split("&currency=")[1].split("&amount")[0]
+                obj["baseCurrency"] = 'AED'
+                obj["buy"] = text
+                results.push(obj)
+            });
+         
             // fs.writeFileSync("./results/orientExchangeRateAPIRAW.json", text)
         }
     })
@@ -405,11 +408,12 @@ const alfardanExchangeRateAPI = async () => {
     }
 
     finalData.rates = results
+    await new Promise(resolve => setTimeout(resolve, 2000));
     browser.close()
-    return finalData
+    return finalData.rates
 
 };
-// alfardanExchangeRateAPI().then(console.log)
+alfardanExchangeRateAPI().then(console.log)
 
 
 //Pending It has API call data
